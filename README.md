@@ -10,7 +10,10 @@
 
 ## Mayor changes:
 
-## Environment variable:
+## Environment variables:
+
+-   REACT_APP_GITHUB_URL = "https://api.github.com"
+-   REACT_APP_GITHUB_TOKEN - Register your own [Personal access token](https://github.com/settings/tokens)
 
 ## Original Course Code:
 
