@@ -1,6 +1,6 @@
 import { createContext, useReducer } from 'react';
 import githubReducer from './GithubReducer';
-import { SET_USERS, SET_USER, SET_LOADING, CLEAR_USERS } from '../types';
+import { SET_USERS, SET_USER, SET_REPOS, SET_LOADING, CLEAR_USERS } from '../types';
 
 const GithubContext = createContext();
 
@@ -11,6 +11,7 @@ export const GithubProvider = ({ children }) => {
     const initialState = {
         users: [],
         user: {},
+        repos: [],
         loading: false,
     };
     const [state, dispatch] = useReducer(githubReducer, initialState);
@@ -28,7 +29,7 @@ export const GithubProvider = ({ children }) => {
             },
         });
         const { items } = await response.json();
-        // console.log(data);
+
         dispatch({
             type: SET_USERS,
             payload: items,
@@ -59,6 +60,27 @@ export const GithubProvider = ({ children }) => {
         }
     };
 
+    // Get user repos
+    const getUserRepos = async (login) => {
+        setLoading();
+
+        const params = new URLSearchParams({
+            per_page: '10',
+            sort: 'created:asc',
+        });
+        const response = await fetch(`${GITHUB_URL}/users/${login}/repos?${params}`, {
+            headers: {
+                Authorization: `token ${GITHUB_TOKEN}`,
+            },
+        });
+        const data = await response.json();
+
+        dispatch({
+            type: SET_REPOS,
+            payload: data,
+        });
+    };
+
     // Set loading to be true
     const setLoading = () => dispatch({ type: SET_LOADING });
 
@@ -68,9 +90,11 @@ export const GithubProvider = ({ children }) => {
                 users: state.users,
                 loading: state.loading,
                 user: state.user,
+                repos: state.repos,
                 searchUsers,
                 clearSearchResults,
                 getUser,
+                getUserRepos,
             }}
         >
             {children}
