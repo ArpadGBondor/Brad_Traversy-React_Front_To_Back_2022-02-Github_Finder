@@ -60,7 +60,7 @@ function User() {
                     </div>
 
                     <div className="col-span-2">
-                        <div className="mb-6">
+                        <div className="mb-4">
                             <h1 className="text-3xl card-title">
                                 {name}
                                 <div className="ml-2 mr-1 badge badge-success">{type}</div>
@@ -75,67 +75,71 @@ function User() {
                         </div>
 
                         <div className="w-full rounded-lg shadow-md bg-base-100 stats">
-                            {location && (
-                                <div className="stat">
-                                    <div className="stat-title text-md">Location</div>
-                                    <div className="text-lg stat-value">{location}</div>
-                                </div>
-                            )}
-                            {blog && (
-                                <div className="stat">
-                                    <div className="stat-title text-md">Website</div>
-                                    <div className="text-lg stat-value">
-                                        <a href={blog} target="_blank" rel="noreferrer">
-                                            {blog}
-                                        </a>
+                            <div className="flex flex-wrap gap-5">
+                                {location && (
+                                    <div className="stat p-0 flex-1">
+                                        <div className="stat-title text-md">Location</div>
+                                        <div className="text-lg stat-value">{location}</div>
                                     </div>
-                                </div>
-                            )}
-                            {twitter_username && (
-                                <div className="stat">
-                                    <div className="stat-title text-md">Twitter</div>
-                                    <div className="text-lg stat-value">
-                                        <a
-                                            href={`https://twitter.com/${twitter_username}`}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            {twitter_username}
-                                        </a>
+                                )}
+                                {blog && (
+                                    <div className="stat p-0 flex-1">
+                                        <div className="stat-title text-md">Website</div>
+                                        <div className="text-lg stat-value">
+                                            <a href={blog} target="_blank" rel="noreferrer">
+                                                {blog}
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            )}{' '}
+                                )}
+                                {twitter_username && (
+                                    <div className="stat p-0 flex-1">
+                                        <div className="stat-title text-md">Twitter</div>
+                                        <div className="text-lg stat-value">
+                                            <a
+                                                href={`https://twitter.com/${twitter_username}`}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                            >
+                                                {twitter_username}
+                                            </a>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="w-full py-5 mb-5 rounded-lg shadow-md bg-base-100 stats">
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <FaUsers className="text-3xl md:text-5xl" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <FaUsers className="text-3xl md:text-5xl" />
+                            </div>
+                            <div className="stat-title pr-5">Followers</div>
+                            <div className="stat-value pr-5 text-3xl text-4xl">{followers}</div>
                         </div>
-                        <div className="stat-title pr-5">Followers</div>
-                        <div className="stat-value pr-5 text-3xl text-4xl">{followers}</div>
-                    </div>
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <FaUserFriends className="text-3xl md:text-5xl" />
+                        <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <FaUserFriends className="text-3xl md:text-5xl" />
+                            </div>
+                            <div className="stat-title pr-5">Following</div>
+                            <div className="stat-value pr-5 text-3xl text-4xl">{following}</div>
                         </div>
-                        <div className="stat-title pr-5">Following</div>
-                        <div className="stat-value pr-5 text-3xl text-4xl">{following}</div>
-                    </div>
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <FaCodepen className="text-3xl md:text-5xl" />
+                        <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <FaCodepen className="text-3xl md:text-5xl" />
+                            </div>
+                            <div className="stat-title pr-5">Public Repos</div>
+                            <div className="stat-value pr-5 text-3xl text-4xl">{public_repos}</div>
                         </div>
-                        <div className="stat-title pr-5">Public Repos</div>
-                        <div className="stat-value pr-5 text-3xl text-4xl">{public_repos}</div>
-                    </div>
-                    <div className="stat">
-                        <div className="stat-figure text-secondary">
-                            <FaStore className="text-3xl md:text-5xl" />
+                        <div className="stat">
+                            <div className="stat-figure text-secondary">
+                                <FaStore className="text-3xl md:text-5xl" />
+                            </div>
+                            <div className="stat-title pr-5">Public Gists</div>
+                            <div className="stat-value pr-5 text-3xl text-4xl">{public_gists}</div>
                         </div>
-                        <div className="stat-title pr-5">Public Gists</div>
-                        <div className="stat-value pr-5 text-3xl text-4xl">{public_gists}</div>
                     </div>
                 </div>
 
