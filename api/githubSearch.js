@@ -1,7 +1,24 @@
-import axios from 'axios';
+import { github } from './_github';
 
-export default async function handler(request, response) {
-    const { query } = request.query;
-    const { data } = await axios.get('https://api.github.com/users/arpadgbondor');
-    response.status(200).json(`query: ${query}, method: ${request.method}, name: ${data.login}`);
+export default function handler(request, response) {
+    switch (request.method) {
+        case 'GET':
+            handleGET(request, response);
+            break;
+
+        default:
+            response.status(405).json(`Method Not Allowed.`);
+    }
 }
+
+const handleGET = async (req, res) => {
+    const { query } = req.query;
+
+    // Get search results
+    const params = new URLSearchParams({
+        q: query,
+    });
+    const { data } = await github.get(`/search/users?${params}`);
+
+    res.status(200).json(data.items);
+};
