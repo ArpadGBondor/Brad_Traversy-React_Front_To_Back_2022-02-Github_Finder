@@ -1,4 +1,4 @@
-import { FaEye, FaInfo, FaLink, FaStar, FaUtensils } from 'react-icons/fa';
+import { FaEye, FaInfo, FaStar, FaUtensils } from 'react-icons/fa';
 import React from 'react';
 import PropTypes from 'prop-types';
 
