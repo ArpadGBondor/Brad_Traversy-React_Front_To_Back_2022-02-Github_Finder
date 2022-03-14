@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function RepoItem({ repo: { name, description, html_url, forks, open_issues, watchers_count, stargazers_count } }) {
     return (
-        <div className="mb-2 rounded-md card bg-gray-800 hover:bg-gray-900">
+        <div className="mb-2 rounded-md card bg-base-200 hover:bg-base-300">
             <div className="card-body">
                 <h3 className="mb-2 text-xl font-semibold">
                     <a href={html_url} className="inline mr-1">
