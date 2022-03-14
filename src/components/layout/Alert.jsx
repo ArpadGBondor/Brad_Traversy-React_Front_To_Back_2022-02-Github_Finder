@@ -12,7 +12,7 @@ function Alert() {
                         <path stroke="#B91C1C" strokeWidth="2" d="M8 8l8 8M16 8l-8 8"></path>
                     </svg>
                 )}
-                <p className="flex-1 text-base font-semibold leading-7 text-white">
+                <p className="flex-1 text-base font-semibold leading-7">
                     <strong>{alert?.message}</strong>
                 </p>
             </p>
