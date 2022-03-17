@@ -26,6 +26,6 @@
     -   GITHUB_URL = "https://api.github.com"
     -   GITHUB_TOKEN - Register your own [Personal access token](https://github.com/settings/tokens)
 
-## Original Course Code:
+## The instructor's solution:
 
--   The original code for this project can be found in [this Github repo](https://github.com/bradtraversy/github-finder-app)
+-   The source code of the instructor's solution is in [this Github repo](https://github.com/bradtraversy/github-finder-app)
