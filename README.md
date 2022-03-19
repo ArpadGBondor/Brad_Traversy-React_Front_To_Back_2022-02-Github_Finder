@@ -13,7 +13,9 @@
 
 ## Used Tools:
 
--   Frontend: React.js
+-   Frontend: 
+    -   React.js
+    -   Tailwind CSS - daisyUI
 -   Backend: Serverless Function on Vercel
 
 ## Mayor changes:
